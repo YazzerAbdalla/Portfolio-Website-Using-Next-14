@@ -42,7 +42,7 @@ const MobileNav = () => {
       <SheetTrigger className="flex justify-center items-center">
         <CiMenuFries className="text-[32px] text-accent" />
       </SheetTrigger>
-      <SheetContent className="flex flex-col ">
+      <SheetContent className="flex flex-col overflow-y-scroll">
         {/** logo */}
         <SheetTitle>.</SheetTitle>
         <div className="mt-32 mb-20 text-center text-2xl">

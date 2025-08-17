@@ -18,7 +18,6 @@ const Services = () => {
   const [servicesData, setServicesData] = useState<servicesState[]>([]);
 
   useEffect(() => {
-    // Define your GROQ query
     const query = `*[_type == "services"]`;
 
     // Fetch data from Sanity
@@ -54,6 +53,7 @@ const Services = () => {
                   </div>
                   <Link
                     href={service.href ? service.href : ""}
+                    aria-label="Service link"
                     className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center group-hover:-rotate-45"
                   >
                     <BsArrowDownRight className="text-primary text-3xl" />
@@ -61,12 +61,12 @@ const Services = () => {
                 </div>
 
                 {/* title */}
-                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
+                <h2 className=" font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
                   {service.title}
                 </h2>
 
                 {/* description */}
-                <h2 className="text-white/60">{service.description}</h2>
+                <h3 className="text-white/60">{service.description}</h3>
 
                 {/* border */}
                 <div className="border-b border-white/20 w-full"></div>
