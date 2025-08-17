@@ -4,8 +4,8 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
-  name: '2024protofolio',
-  title: 'protoflio-project',
+  name: '2024-portfolio',
+  title: 'portfolio-project',
 
   projectId: 'ohqfzjrv',
   dataset: 'production',

@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 import { IoMdClose } from "react-icons/io";
 
-const Sheet = SheetPrimitive.Root;
+const Sheet = SheetPrimitive.Root;  
 
 const SheetTrigger = SheetPrimitive.Trigger;
 

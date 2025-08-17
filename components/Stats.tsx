@@ -14,7 +14,6 @@ const Stats = () => {
   const [statsData, setStatsData] = useState<statsDataState[]>([]);
 
   useEffect(() => {
-    // Define your GROQ query
     const query = `*[_type == "stats"]`;
 
     // Fetch data from Sanity
@@ -36,12 +35,18 @@ const Stats = () => {
                 className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
                 key={index}
               >
-                <CountUp
-                  end={item.num}
-                  duration={5}
-                  delay={2}
-                  className="text-4xl xl:text-6xl font-extrabold"
-                />
+                <div className="flex">
+                  <CountUp
+                    end={item.num}
+                    duration={5}
+                    delay={2}
+                    className="text-4xl xl:text-6xl font-extrabold"
+                  />
+                  <p className="text-4xl xl:text-6xl font-extrabold">
+                    {item.text.includes("Core") ? "+" : ""}
+                  </p>
+                </div>
+
                 <p
                   className={`${item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px"} leading-snug text-white/80`}
                 >

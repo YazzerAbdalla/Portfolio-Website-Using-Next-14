@@ -1,9 +1,13 @@
 "use client";
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 
 const links = [
@@ -40,6 +44,7 @@ const MobileNav = () => {
       </SheetTrigger>
       <SheetContent className="flex flex-col ">
         {/** logo */}
+        <SheetTitle>.</SheetTitle>
         <div className="mt-32 mb-20 text-center text-2xl">
           <Link href={"/"}>
             <h1 className="text-4xl h-fit flex-col">
@@ -53,7 +58,8 @@ const MobileNav = () => {
             return (
               <Link
                 className={`${
-                  link.path === pathname && "text-accent border-b-2 border-accent"
+                  link.path === pathname &&
+                  "text-accent border-b-2 border-accent"
                 } text-xl capitalize hover:text-accent transition-all`}
                 key={index}
                 href={link.path}

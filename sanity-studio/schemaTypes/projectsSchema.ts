@@ -45,8 +45,8 @@ export default {
       type: 'string',
     },
     {
-      name: 'githup',
-      title: 'Githup link',
+      name: 'github',
+      title: 'Github link',
       type: 'string',
     },
   ],
