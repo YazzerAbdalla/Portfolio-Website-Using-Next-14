@@ -11,7 +11,7 @@ export default function Header() {
       <div className="container mx-auto flex justify-between items-center">
         {/** Logo */}
         <Link href={"/"}>
-          <h1 className="xl:text-4xl text-3xl font-semibold">
+          <h1 className="text-3xl xl:text-4xl font-semibold leading-none tracking-tight">
             Yasser<span className="text-accent">.</span>
           </h1>
         </Link>

@@ -9,7 +9,7 @@ import StairTransition from "@/components/StairTransition";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  weight: ["600", "700"],
   variable: "--font-jetbrainsMono",
   display: "swap",
 });
@@ -29,8 +29,8 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="/man.ico" />
       </head>
-      <body className={jetbrainsMono.className}>
-        <StairTransition />
+      <body className={`${jetbrainsMono.variable} font-primary`}>
+        {/* <StairTransition /> */}
 
         <div className="xl:px-24 px-6">
           <Header />

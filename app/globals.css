@@ -22,3 +22,10 @@
     -webkit-text-stroke: 1px #00ff99;
   }
 }
+:root {
+  --font-jetbrainsMono: system-ui, sans-serif;
+}
+
+.font-primary {
+  font-family: var(--font-jetbrainsMono);
+}
