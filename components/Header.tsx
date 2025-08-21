@@ -10,11 +10,11 @@ export default function Header() {
     <header className="py-8 xl:py-12 text-white ">
       <div className="container mx-auto flex justify-between items-center">
         {/** Logo */}
-        <Link href={"/"}>
-          <h1 className="text-3xl xl:text-4xl font-semibold leading-none tracking-tight">
+        <h1 className="text-3xl xl:text-4xl font-semibold leading-none tracking-tight">
+          <Link href={"/"}>
             Yasser<span className="text-accent">.</span>
-          </h1>
-        </Link>
+          </Link>
+        </h1>
 
         {/** desktop nav & hire me button */}
         <div className="hidden xl:flex items-center gap-8">

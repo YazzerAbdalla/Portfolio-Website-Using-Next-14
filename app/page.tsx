@@ -38,7 +38,7 @@ export default function Home() {
                 <span className="text-[18px]">from Cairo, Egypt</span>
               </h1>
               <span className="text-[32px] mt-2 block">Software Engineer</span>
-              <p className="text-[22px] mb-9 xl:mt-6 text-white/90">
+              <p className="text-[22px] mb-9 xl:mt-6 text-white/90 min-h-[120px] leading-[1.5]">
                 <span className="font-semibold block leading-relaxed">
                   React.js Developer Building High-Performance Web Applications{" "}
                 </span>

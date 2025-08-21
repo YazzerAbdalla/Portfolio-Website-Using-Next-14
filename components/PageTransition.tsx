@@ -1,7 +1,9 @@
 "use client";
 
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const PageTransition = ({
   children,
@@ -9,6 +11,20 @@ const PageTransition = ({
   children: React.ReactNode;
 }>) => {
   const pathname = usePathname();
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const [showChildren, setShowChildren] = useState(false);
+
+  useEffect(() => {
+    setShowChildren(false);
+    const timer = setTimeout(() => setShowChildren(true), 1000); // delay نفس وقت overlay
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  // To break transition on phones
+  if (isMobile) {
+    return <div key={pathname}>{children}</div>;
+  }
   return (
     <AnimatePresence>
       <div key={pathname}>
@@ -20,7 +36,7 @@ const PageTransition = ({
           }}
           className="h-screen w-screen fixed bg-primary  top-0 pointer-events-none"
         ></motion.div>
-        {children}
+        {showChildren && children}
       </div>
     </AnimatePresence>
   );
