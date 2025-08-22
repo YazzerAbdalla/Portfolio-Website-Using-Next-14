@@ -7,6 +7,7 @@ import "@/public/preload/preload.css";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -35,7 +36,9 @@ export default function RootLayout({
 
         <div className="xl:px-24 px-6">
           <Header />
-          <PageTransition>{children}</PageTransition>
+          <TooltipProvider delayDuration={100}>
+            <PageTransition>{children}</PageTransition>
+          </TooltipProvider>
         </div>
       </body>
     </html>

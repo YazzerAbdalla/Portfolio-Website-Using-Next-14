@@ -12,7 +12,7 @@ export default function Header() {
         {/** Logo */}
         <h1 className="text-3xl xl:text-4xl font-semibold leading-none tracking-tight">
           <Link href={"/"}>
-            Yasser<span className="text-accent">.</span>
+            Yasser<span className="text-accent text-3xl xl:text-4xl">.</span>
           </Link>
         </h1>
 
