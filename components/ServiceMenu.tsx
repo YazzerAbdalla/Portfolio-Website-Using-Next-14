@@ -76,114 +76,189 @@ const ServiceMenu = () => {
         ctaHref: "/contact",
       },
     ],
-    []
+    [],
   );
 
   const [active, setActive] = useState<Service>(services[0]);
 
   return (
-    <section aria-label="Services" className="w-full">
-      <div className="flex items-end justify-between gap-4 mb-6">
-        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+    <section
+      aria-label="Services"
+      className="w-full mt-[20px]"
+      style={
+        {
+          // custom values (no tailwind theme colors)
+          // you can remove these if you prefer pure classes only
+          // but these are NOT from tailwind config
+        }
+      }
+    >
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-[8px] sm:gap-[16px] mb-[18px] sm:mb-[22px]">
+        <h2 className="text-[22px] sm:text-[26px] font-extrabold tracking-[-0.02em] leading-[1.1]">
           Service Menu
         </h2>
-        <span className="text-sm text-white/60">
+        <span className="text-[12px] sm:text-[14px] text-white/60">
           Select a service to view details
         </span>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+      {/* Layout */}
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-[16px] md:gap-[20px]">
         {/* Left: menu */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+        <div
+          className="rounded-[18px] overflow-hidden"
+          style={{
+            border: "1px solid rgba(255,255,255,0.10)",
+            background: "rgba(255,255,255,0.05)",
+          }}
+        >
           {/* terminal header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/20">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-              <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-              <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
+          <div
+            className="flex items-center justify-between px-[16px] py-[12px]"
+            style={{
+              borderBottom: "1px solid rgba(255,255,255,0.10)",
+              background: "rgba(0,0,0,0.20)",
+            }}
+          >
+            <div className="flex items-center gap-[8px]">
+              <span className="w-[10px] h-[10px] rounded-full bg-white/20" />
+              <span className="w-[10px] h-[10px] rounded-full bg-white/20" />
+              <span className="w-[10px] h-[10px] rounded-full bg-white/20" />
             </div>
-            <p className="text-xs text-white/60">services.sh</p>
+            <p className="text-[12px] text-white/60">services.sh</p>
           </div>
 
-          <div className="p-3">
-            {services.map((s) => {
-              const isActive = active.id === s.id;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => setActive(s)}
-                  className={[
-                    "w-full text-left rounded-xl px-4 py-4 mb-2 transition",
-                    "border border-transparent",
-                    isActive
-                      ? "bg-[#00ff99]/10 border-[#00ff99]/30"
-                      : "hover:bg-white/5",
-                  ].join(" ")}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <p className="text-xs text-white/50 mb-1">
-                        {isActive ? (
-                          <span className="text-[#00ff99]">{"> selected"}</span>
-                        ) : (
-                          <span>{"> service"}</span>
-                        )}{" "}
-                        <span className="ml-2 text-white/40">{s.num}</span>
-                      </p>
-                      <h3 className="text-lg md:text-xl font-bold text-white truncate">
-                        {s.title}
-                      </h3>
-                      <p className="text-sm text-white/70 mt-1">{s.short}</p>
+          <div className="p-[12px] sm:p-[14px]">
+            <div className="flex flex-col gap-[8px]">
+              {services.map((s) => {
+                const isActive = active.id === s.id;
+
+                return (
+                  <button
+                    key={s.id}
+                    type="button"
+                    onClick={() => setActive(s)}
+                    className="w-full text-left rounded-[14px] px-[16px] py-[14px] transition"
+                    style={{
+                      border: isActive
+                        ? "1px solid rgba(0,255,153,0.30)"
+                        : "1px solid rgba(255,255,255,0.00)",
+                      background: isActive
+                        ? "rgba(0,255,153,0.10)"
+                        : "transparent",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (isActive) return;
+                      (e.currentTarget as HTMLButtonElement).style.background =
+                        "rgba(255,255,255,0.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      if (isActive) return;
+                      (e.currentTarget as HTMLButtonElement).style.background =
+                        "transparent";
+                    }}
+                  >
+                    <div className="flex items-start justify-between gap-[14px]">
+                      <div className="min-w-0">
+                        <p className="text-[12px] text-white/50 mb-[6px]">
+                          {isActive ? (
+                            <span style={{ color: "#00ff99" }}>
+                              {"> selected"}
+                            </span>
+                          ) : (
+                            <span>{"> service"}</span>
+                          )}{" "}
+                          <span className="ml-[8px] text-white/40">
+                            {s.num}
+                          </span>
+                        </p>
+
+                        <h3 className="text-[16px] sm:text-[18px] font-bold text-white leading-[1.25]">
+                          {s.title}
+                        </h3>
+
+                        <p className="text-[13px] sm:text-[14px] text-white/70 mt-[6px] leading-[1.45]">
+                          {s.short}
+                        </p>
+                      </div>
+
+                      <span
+                        className="shrink-0 text-[12px] px-[8px] py-[4px] rounded-full"
+                        style={{
+                          border: isActive
+                            ? "1px solid rgba(0,255,153,0.40)"
+                            : "1px solid rgba(255,255,255,0.10)",
+                          color: isActive
+                            ? "#00ff99"
+                            : "rgba(255,255,255,0.50)",
+                        }}
+                      >
+                        {s.num}
+                      </span>
                     </div>
-                    <span
-                      className={[
-                        "text-xs px-[8px] py-1 rounded-full border",
-                        isActive
-                          ? "border-[#00ff99]/40 text-[#00ff99]"
-                          : "border-white/10 text-white/50",
-                      ].join(" ")}
-                    >
-                      {s.num}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
         {/* Right: details */}
-        <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+        <div
+          className="rounded-[18px] overflow-hidden"
+          style={{
+            border: "1px solid rgba(255,255,255,0.10)",
+            background: "rgba(255,255,255,0.05)",
+          }}
+        >
           {/* header */}
-          <div className="px-4 py-[10px] border-b border-white/10 bg-black/20">
-            <p className="text-xs text-white/60 mb-1">details</p>
-            <div className="flex items-start justify-between gap-4">
-              <h3 className="text-xl md:text-2xl font-extrabold text-white">
-                <span className="text-[#00ff99]">{active.num}.</span>{" "}
+          <div
+            className="px-[16px] py-[12px]"
+            style={{
+              borderBottom: "1px solid rgba(255,255,255,0.10)",
+              background: "rgba(0,0,0,0.20)",
+            }}
+          >
+            <p className="text-[12px] text-white/60 mb-[6px]">details</p>
+
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[10px]">
+              <h3 className="text-[18px] sm:text-[22px] font-extrabold text-white leading-[1.2]">
+                <span style={{ color: "#00ff99" }}>{active.num}.</span>{" "}
                 {active.title}
               </h3>
+
               {active.ctaHref && active.ctaLabel && (
-                <Button asChild className="min-h-[40px] px-4 text-wrap">
+                <Button asChild className="min-h-[40px] px-[14px] self-start">
                   <Link href={active.ctaHref} aria-label={active.ctaLabel}>
-                    {active.ctaLabel}
-                    <BsArrowUpRight className="ml-2" />
+                    <span className="whitespace-nowrap">{active.ctaLabel}</span>
+                    <BsArrowUpRight className="ml-[8px]" />
                   </Link>
                 </Button>
               )}
             </div>
           </div>
 
-          <div className="p-3">
-            <p className="text-white/80 text-base leading-relaxed">
+          <div className="p-[12px] sm:p-[14px]">
+            <p className="text-white/80 text-[14px] sm:text-[16px] leading-[1.6]">
               {active.short}
             </p>
 
-            <div className="mt-5 rounded-xl border border-white/10 bg-black/20 p-3">
-              <p className="text-xs text-white/60 mb-2">{"> scope"}</p>
-              <ul className="space-y-3">
+            <div
+              className="mt-[16px] rounded-[14px] p-[12px]"
+              style={{
+                border: "1px solid rgba(255,255,255,0.10)",
+                background: "rgba(0,0,0,0.20)",
+              }}
+            >
+              <p className="text-[12px] text-white/60 mb-[10px]">{"> scope"}</p>
+              <ul className="flex flex-col gap-[10px]">
                 {active.bullets.map((b, i) => (
-                  <li key={i} className="text-sm md:text-base text-white/80">
-                    <span className="text-[#00ff99] mr-[4px]">✓</span>
+                  <li
+                    key={i}
+                    className="text-[13px] sm:text-[15px] text-white/80 leading-[1.5]"
+                  >
+                    <span style={{ color: "#00ff99", marginRight: 6 }}>✓</span>
                     {b}
                   </li>
                 ))}
@@ -191,17 +266,21 @@ const ServiceMenu = () => {
             </div>
 
             {active.outcome && (
-              <div className="mt-4 flex items-start gap-3">
-                <span className="text-[#00ff99] font-bold">{"> outcome"}</span>
-                <p className="text-white/70">{active.outcome}</p>
+              <div className="mt-[14px] flex items-start gap-[10px]">
+                <span style={{ color: "#00ff99", fontWeight: 700 }}>
+                  {"> outcome"}
+                </span>
+                <p className="text-white/70 text-[13px] sm:text-[14px] leading-[1.5]">
+                  {active.outcome}
+                </p>
               </div>
             )}
 
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <div className="mt-[18px] flex flex-col sm:flex-row gap-[10px]">
               <Button
                 asChild
                 size="lg"
-                className="uppercase min-h-[52px] px-6 tracking-[2px]"
+                className="uppercase min-h-[52px] px-[24px] tracking-[2px]"
               >
                 <Link href="/contact" aria-label="Book a call">
                   <span className="font-extrabold">Book a call</span>
@@ -212,7 +291,7 @@ const ServiceMenu = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="uppercase min-h-[52px] px-6 tracking-[2px]"
+                className="uppercase min-h-[52px] px-[24px] tracking-[2px]"
               >
                 <Link href="/work" aria-label="View work">
                   <span className="font-extrabold">View work</span>
@@ -220,7 +299,7 @@ const ServiceMenu = () => {
               </Button>
             </div>
 
-            <p className="mt-4 text-xs text-white/50">
+            <p className="mt-[14px] text-[12px] text-white/50 leading-[1.5]">
               Tip: this menu is keyboard-friendly and keeps your UI clean on
               mobile.
             </p>

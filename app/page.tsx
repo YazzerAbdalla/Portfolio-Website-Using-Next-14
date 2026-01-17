@@ -38,7 +38,7 @@ export default function Home() {
       >
         <div className="container mx-auto h-full">
           <div className="xl:pl-8 xl:pb-24 flex flex-col gap-16 pb-4">
-            <div className="flex flex-col xl:flex-row items-center justify-between">
+            <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
               <div className="text-center xl:text-left order-2 xl:order-none w-full">
                 {/* Main heading (LCP candidate) */}
                 <h1
