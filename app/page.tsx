@@ -1,10 +1,9 @@
-import { lazy, Suspense } from "react";
+import ServiceMenu from "@/components/ServiceMenu";
 import Link from "next/link";
+import { lazy } from "react";
 
 import Social from "@/components/Socials";
 import { Button } from "@/components/ui/button";
-
-const CoreTechnologies = lazy(() => import("@/components/CoreTechnologies"));
 
 /** Lightweight, CLS-safe fallback with fixed height */
 const CoreTechnologiesSkeleton = () => (
@@ -112,10 +111,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Tech marquee (lazy) */}
-            <Suspense fallback={<CoreTechnologiesSkeleton />}>
-              <CoreTechnologies />
-            </Suspense>
+            <ServiceMenu />
           </div>
         </div>
       </section>
