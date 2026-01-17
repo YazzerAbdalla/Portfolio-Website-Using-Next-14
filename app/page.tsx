@@ -104,7 +104,7 @@ export default function Home() {
                   <nav aria-label="Social links" className="mb-8 xl:mb-0">
                     <Social
                       containerStyles="flex gap-6"
-                      iconStyles="text-accent w-10 h-10 border border-accent rounded-full flex justify-center items-center text-base hover:bg-accent hover:text-primary transition-colors duration-300"
+                      iconStyles="text-[30px] text-accent w-10 h-12 p-1 border border-accent rounded-full flex justify-center items-center hover:bg-accent hover:text-primary transition-colors duration-300"
                     />
                   </nav>
                 </div>

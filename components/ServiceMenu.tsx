@@ -116,7 +116,7 @@ const ServiceMenu = () => {
                     "w-full text-left rounded-xl px-4 py-4 mb-2 transition",
                     "border border-transparent",
                     isActive
-                      ? "bg-accent/10 border-accent/30"
+                      ? "bg-[#00ff99]/10 border-[#00ff99]/30"
                       : "hover:bg-white/5",
                   ].join(" ")}
                 >
@@ -124,7 +124,7 @@ const ServiceMenu = () => {
                     <div className="min-w-0">
                       <p className="text-xs text-white/50 mb-1">
                         {isActive ? (
-                          <span className="text-accent">{"> selected"}</span>
+                          <span className="text-[#00ff99]">{"> selected"}</span>
                         ) : (
                           <span>{"> service"}</span>
                         )}{" "}
@@ -137,9 +137,9 @@ const ServiceMenu = () => {
                     </div>
                     <span
                       className={[
-                        "text-xs px-2 py-1 rounded-full border",
+                        "text-xs px-[8px] py-1 rounded-full border",
                         isActive
-                          ? "border-accent/40 text-accent"
+                          ? "border-[#00ff99]/40 text-[#00ff99]"
                           : "border-white/10 text-white/50",
                       ].join(" ")}
                     >
@@ -155,11 +155,11 @@ const ServiceMenu = () => {
         {/* Right: details */}
         <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
           {/* header */}
-          <div className="px-5 py-4 border-b border-white/10 bg-black/20">
+          <div className="px-4 py-[10px] border-b border-white/10 bg-black/20">
             <p className="text-xs text-white/60 mb-1">details</p>
             <div className="flex items-start justify-between gap-4">
               <h3 className="text-xl md:text-2xl font-extrabold text-white">
-                <span className="text-accent">{active.num}.</span>{" "}
+                <span className="text-[#00ff99]">{active.num}.</span>{" "}
                 {active.title}
               </h3>
               {active.ctaHref && active.ctaLabel && (
@@ -173,17 +173,17 @@ const ServiceMenu = () => {
             </div>
           </div>
 
-          <div className="p-5">
+          <div className="p-3">
             <p className="text-white/80 text-base leading-relaxed">
               {active.short}
             </p>
 
-            <div className="mt-5 rounded-xl border border-white/10 bg-black/20 p-4">
+            <div className="mt-5 rounded-xl border border-white/10 bg-black/20 p-3">
               <p className="text-xs text-white/60 mb-2">{"> scope"}</p>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {active.bullets.map((b, i) => (
                   <li key={i} className="text-sm md:text-base text-white/80">
-                    <span className="text-accent mr-2">✓</span>
+                    <span className="text-[#00ff99] mr-[4px]">✓</span>
                     {b}
                   </li>
                 ))}
@@ -192,7 +192,7 @@ const ServiceMenu = () => {
 
             {active.outcome && (
               <div className="mt-4 flex items-start gap-3">
-                <span className="text-accent font-bold">{"> outcome"}</span>
+                <span className="text-[#00ff99] font-bold">{"> outcome"}</span>
                 <p className="text-white/70">{active.outcome}</p>
               </div>
             )}
