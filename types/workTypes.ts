@@ -3,6 +3,7 @@ interface ProjectStack {
 }
 
 export interface Project {
+  _id: any;
   num: string;
   category: string;
   title: string;

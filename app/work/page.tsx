@@ -7,7 +7,9 @@ import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 
 import { Swiper as swiperType } from "swiper/types";
 import { Swiper, SwiperSlide } from "swiper/react";
+// @ts-ignore: side-effect CSS import without type declarations
 import "swiper/css";
+// @ts-ignore: side-effect CSS import without type declarations
 import "swiper/css/navigation";
 
 import { Project } from "@/types/workTypes";
@@ -39,7 +41,7 @@ const Work = () => {
 
   return (
     <section className="container mx-auto px-4 lg:px-0">
-      <div className="flex flex-col xl:flex-row xl:gap-[30px] gap-8">
+      <div className="flex flex-col xl:flex-row xl:gap-[30px] md:gap-8">
         {/* text */}
         <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
           <div className="flex flex-col gap-[20px] h-[50%]">
@@ -47,10 +49,16 @@ const Work = () => {
             <h1 className="text-6xl md:text-8xl leading-none font-extrabold text-transparent text-outline">
               {project?.num}
             </h1>
-            {/* project category */}
-            <h2 className="md:text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize min-h-[42px]">
-              {project?.category} Project
+            {/* project title */}
+            <h2 className="text-3xl md:text-[42px] font-bold leading-none text-white/80 group-hover:text-accent transition-all duration-500 capitalize h-fit">
+              {project?.title}
             </h2>
+
+            {/* project category */}
+            <h3 className="text-2xl md:text-4xl font-bold leading-none text-white min-h-[40px]">
+              {project?.category} Project
+            </h3>
+
             <div className="flex gap-3 flex-col">
               {/* project description */}
               <p className="text-white/60 text-sm md:text-base min-h-[40px] ">
@@ -115,23 +123,21 @@ const Work = () => {
           >
             {projects.length > 0 &&
               projects.map((project, index) => (
-                <SwiperSlide key={index} className="w-full">
-                  <div className="h-[300px] md:h-[460px] relative group flex justify-center items-center bg-black/10">
-                    {/* overlay */}
-                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={urlFor(project.image.asset._ref)
-                          .width(800)
-                          .height(600)
-                          .url()}
-                        alt={`${project.category} project`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover"
-                        priority={index === 0} // only for the first slide
-                      />
-                    </div>
+                <SwiperSlide key={project._id ?? index} className="w-full">
+                  <div className="h-[300px] md:h-[460px] relative overflow-hidden bg-black/10">
+                    <div className="absolute inset-0 bg-black/10 z-10" />
+                    <Image
+                      src={urlFor(project.image.asset._ref)
+                        .width(1200) // أكبر من الأصل شوية للتعامل مع DPI
+                        .quality(90)
+                        .auto("format")
+                        .url()}
+                      alt={`${project.category} project`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-contain"
+                      priority={index === 0}
+                    />
                   </div>
                 </SwiperSlide>
               ))}

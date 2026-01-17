@@ -8,9 +8,10 @@ import {
   FaReact,
   FaNodeJs,
   FaFigma,
+  FaGitAlt,
 } from "react-icons/fa";
 
-import { SiMongodb, SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { SiMongodb, SiTailwindcss, SiNextdotjs, SiNestjs, SiExpress, SiDocker } from "react-icons/si";
 
 const useResumeData = () => {
   const [resumeData, setResumeData] = useState<ResumeState>({
@@ -63,43 +64,60 @@ const useResumeData = () => {
 
   const skills = {
     title: "Skills",
-    description: "Showcasing the technical skills that power my projects.",
+    description:
+      "Technologies and tools I use to build fast, scalable, and production-ready web applications.",
     skillList: [
       {
         icon: <FaHtml5 />,
-        name: "html 5",
+        name: "HTML5",
       },
       {
         icon: <FaCss3 />,
-        name: "css 3",
+        name: "CSS3",
       },
       {
         icon: <FaJs />,
-        name: "javascript",
-      },
-      {
-        icon: <FaNodeJs />,
-        name: "nodejs",
+        name: "JavaScript (ES6+)",
       },
       {
         icon: <FaReact />,
-        name: "react.js",
-      },
-      {
-        icon: <SiMongodb />,
-        name: "mongodb",
+        name: "React",
       },
       {
         icon: <SiNextdotjs />,
-        name: "next.js",
+        name: "Next.js",
+      },
+      {
+        icon: <FaNodeJs />,
+        name: "Node.js",
+      },
+      {
+        icon: <SiNestjs />,
+        name: "NestJS",
+      },
+      {
+        icon: <SiMongodb />,
+        name: "MongoDB",
+      },
+      {
+        icon: <SiExpress />,
+        name: "Express.js",
       },
       {
         icon: <SiTailwindcss />,
-        name: "tailwind.css",
+        name: "Tailwind CSS",
+      },
+      {
+        icon: <SiDocker />,
+        name: "Docker",
+      },
+      {
+        icon: <FaGitAlt />,
+        name: "Git & GitHub",
       },
       {
         icon: <FaFigma />,
-        name: "figma",
+        name: "Figma",
       },
     ],
   };

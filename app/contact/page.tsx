@@ -25,11 +25,6 @@ const info = [
     title: "Email",
     description: "yasserelsadek03@gmail.com",
   },
-  {
-    icon: <FaMapMarkerAlt />,
-    title: "Address",
-    description: "7 el2nabi 5lf most4fa bab elsh3ria",
-  },
 ];
 
 const Contact = () => {
@@ -120,7 +115,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 0.4, duration: 0.4, ease: "easeIn" },
       }}
       className="py-6"
     >

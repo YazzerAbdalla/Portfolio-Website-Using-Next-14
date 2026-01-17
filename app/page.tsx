@@ -26,7 +26,6 @@ const CoreTechnologiesSkeleton = () => (
 );
 
 export default function Home() {
-  // fixed ids to wire aria-labelledby/aria-describedby
   const headingId = "hero-label";
   const descId = "hero-desc";
 
@@ -52,9 +51,11 @@ export default function Home() {
                 </h1>
 
                 {/* Location & role */}
-                <p className="mt-1 text-sm text-white/70">from Cairo, Egypt</p>
+                <p className="mt-1 text-sm text-white/70">
+                  Based in Cairo, Egypt
+                </p>
                 <p className="text-[32px] mt-2 font-semibold">
-                  Software Engineer
+                  Full-Stack Software Engineer
                 </p>
 
                 {/* Short value prop / description */}
@@ -63,27 +64,43 @@ export default function Home() {
                   className="text-[20px] md:text-[22px] mb-9 xl:mt-6 text-white/90 leading-[1.55] max-w-3xl mx-auto xl:mx-0"
                 >
                   <span className="font-semibold block leading-relaxed">
-                    Node.js Developer Building High-Performance Web
-                    Applications
+                    I build fast, scalable web applications with Next.js &amp;
+                    NestJS.
                   </span>
-                  I help businesses and startups bring their ideas to life with
-                  fast, modern, and user-friendly web applications built with
-                  React.js. I specialize in creating interactive UIs and
-                  scalable front-end architecture to solve your most complex
-                  challenges.
+                  I help startups and businesses ship production-ready
+                  products—clean UI, secure APIs, and performance-focused
+                  architecture. I’ve improved real-world load time by{" "}
+                  <span className="font-semibold">30%</span> through
+                  optimization and refactoring.
                 </p>
 
                 {/* CTA + socials */}
-                <div className="flex flex-col xl:flex-row items-center gap-8">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="uppercase flex items-center gap-2 min-h-[56px] px-8 tracking-[2px]"
-                  >
-                    <Link href="/work" aria-label="See my projects">
-                      <span className="font-extrabold">See my projects</span>
-                    </Link>
-                  </Button>
+                <div className="flex flex-col xl:flex-row items-center gap-4 xl:gap-8">
+                  <div className="flex flex-col sm:flex-row items-center gap-4">
+                    <Button
+                      asChild
+                      size="lg"
+                      className="uppercase flex items-center gap-2 min-h-[56px] px-8 tracking-[2px]"
+                    >
+                      <Link
+                        href="/contact"
+                        aria-label="Contact Yasser to start a project"
+                      >
+                        <span className="font-extrabold">Book a call</span>
+                      </Link>
+                    </Button>
+
+                    <Button
+                      asChild
+                      size="lg"
+                      variant="outline"
+                      className="uppercase flex items-center gap-2 min-h-[56px] px-8 tracking-[2px]"
+                    >
+                      <Link href="/work" aria-label="See Yasser's projects">
+                        <span className="font-extrabold">View work</span>
+                      </Link>
+                    </Button>
+                  </div>
 
                   <nav aria-label="Social links" className="mb-8 xl:mb-0">
                     <Social
